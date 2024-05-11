@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ff65rksr1vbb"]
+
+[ext_resource type="Script" path="res://Scripts/enemySpawner.gd" id="1_ivo7d"]
+[ext_resource type="PackedScene" uid="uid://dc25i6t8cxukl" path="res://Scenes/Zombie.tscn" id="2_1tpmt"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_ivo7d")
+zombie = ExtResource("2_1tpmt")
+
+[node name="spawnCoolDown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true

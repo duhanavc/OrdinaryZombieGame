@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbxfw61lb5aev"]
+
+[ext_resource type="PackedScene" uid="uid://dc25i6t8cxukl" path="res://Scenes/Zombie.tscn" id="1_t68ms"]
+[ext_resource type="PackedScene" uid="uid://dem1i0vyvamqd" path="res://Scenes/player.tscn" id="2_lv0iq"]
+[ext_resource type="PackedScene" uid="uid://cdt1spxurdl0x" path="res://Scenes/coin.tscn" id="3_ae2m5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_lv0iq")]
+position = Vector2(321, 243)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy" parent="." instance=ExtResource("1_t68ms")]
+position = Vector2(844, 231)
+
+[node name="Coin" parent="." instance=ExtResource("3_ae2m5")]
+position = Vector2(238, 250)

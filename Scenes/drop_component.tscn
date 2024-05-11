@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvu5j8r3oltau"]
+
+[ext_resource type="Script" path="res://Scripts/drop_component.gd" id="1_ob34m"]
+[ext_resource type="PackedScene" uid="uid://blbv4kx8tedse" path="res://Scenes/heart.tscn" id="2_o5eal"]
+[ext_resource type="PackedScene" uid="uid://cdt1spxurdl0x" path="res://Scenes/coin.tscn" id="3_fdxuj"]
+[ext_resource type="PackedScene" uid="uid://cnxu2lwe47ucd" path="res://Scenes/kahve.tscn" id="4_thwgu"]
+
+[node name="DropComponent" type="Node"]
+script = ExtResource("1_ob34m")
+heartScene = ExtResource("2_o5eal")
+coinScene = ExtResource("3_fdxuj")
+kahveScene = ExtResource("4_thwgu")

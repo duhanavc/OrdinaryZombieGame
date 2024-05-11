@@ -1,0 +1,154 @@
+[gd_scene load_steps=21 format=3 uid="uid://dc25i6t8cxukl"]
+
+[ext_resource type="Texture2D" uid="uid://cxgip0c6eudkw" path="res://Sprites/zombie7.png" id="1_nuvtj"]
+[ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_pcfrl"]
+[ext_resource type="PackedScene" uid="uid://bvu5j8r3oltau" path="res://Scenes/drop_component.tscn" id="3_0omxt"]
+[ext_resource type="PackedScene" uid="uid://3utc2fuyrvre" path="res://Scenes/health_component.tscn" id="4_n7rsd"]
+[ext_resource type="PackedScene" uid="uid://dm7616wybpw32" path="res://Scenes/velocityComponent.tscn" id="5_npcly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vdgh"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56cmi"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yde7g"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5mge"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eebyk"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqwur"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y57bq"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjor2"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyryj"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgrgs"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1kns"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tafus"]
+atlas = ExtResource("1_nuvtj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djdxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vdgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56cmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yde7g")
+}],
+"loop": false,
+"name": &"ZombieWalkDown",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5mge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eebyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqwur")
+}],
+"loop": false,
+"name": &"ZombieWalkLeft",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y57bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjor2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyryj")
+}],
+"loop": false,
+"name": &"ZombieWalkRight",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgrgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1kns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tafus")
+}],
+"loop": true,
+"name": &"ZombieWalkUp",
+"speed": 13.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ct6w"]
+radius = 22.0
+height = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmqdt"]
+radius = 194.063
+
+[node name="Zombie" type="CharacterBody2D" groups=["Zombie"]]
+scale = Vector2(1.67, 1.67)
+motion_mode = 1
+script = ExtResource("1_pcfrl")
+
+[node name="aniSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_djdxf")
+animation = &"ZombieWalkUp"
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5ct6w")
+debug_color = Color(0.6, 0.270588, 1, 0.419608)
+
+[node name="EnemyTriggerArea" type="Area2D" parent="."]
+scale = Vector2(0.28, 0.28)
+
+[node name="TriggerShape" type="CollisionShape2D" parent="EnemyTriggerArea"]
+scale = Vector2(0.989697, 1)
+shape = SubResource("CircleShape2D_tmqdt")
+debug_color = Color(0.996946, 3.39322e-06, 1.92523e-07, 0.419608)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_n7rsd")]
+
+[node name="DropComponent" parent="." node_paths=PackedStringArray("healthComponent") groups=["Zombies"] instance=ExtResource("3_0omxt")]
+healthComponent = NodePath("../HealthComponent")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("5_npcly")]
+maxSpeed = 100
+acceleration = 25.0
+
+[connection signal="body_entered" from="EnemyTriggerArea" to="." method="_on_enemy_trigger_area_body_entered"]
+[connection signal="body_exited" from="EnemyTriggerArea" to="." method="_on_enemy_trigger_area_body_exited"]

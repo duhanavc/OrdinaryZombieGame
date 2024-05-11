@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://12n5gyku687e"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_s5nrq"]
+[ext_resource type="Texture2D" uid="uid://b8hrws888wbif" path="res://Sprites/bullet1.jpg" id="2_srjd1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gih1"]
+size = Vector2(144, 20)
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(0.255, 0.255)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_s5nrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+scale = Vector2(0.265, 0.265)
+shape = SubResource("RectangleShape2D_1gih1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_srjd1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.280001, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0

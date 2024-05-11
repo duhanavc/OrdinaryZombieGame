@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://5g150wexitw2"]
+
+[ext_resource type="Script" path="res://Scenes/HUDD.gd" id="1_o6vc0"]
+[ext_resource type="Texture2D" uid="uid://cxgip0c6eudkw" path="res://Sprites/zombie7.png" id="2_8t66o"]
+[ext_resource type="FontFile" uid="uid://dyavf5gowvp2m" path="res://Fonts/Pixellettersfull-BnJ5.ttf" id="2_kakhj"]
+[ext_resource type="Texture2D" uid="uid://llofcm1lcltn" path="res://Sprites/playerIcon.png" id="3_gh6qi"]
+[ext_resource type="Theme" path="res://Scenes/new_theme.tres" id="3_qj7ll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lml6f"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 15
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_o6vc0")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 128.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ZombieSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(1704, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("2_8t66o")
+hframes = 3
+vframes = 4
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(67.5, 64)
+scale = Vector2(4.32143, 2)
+texture = ExtResource("3_gh6qi")
+
+[node name="ZombiesLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+anchors_preset = -1
+anchor_left = -0.0208333
+anchor_top = -0.0305556
+anchor_right = -0.0208333
+anchor_bottom = -0.0305556
+offset_left = 1784.0
+offset_top = 56.0
+offset_right = 1920.0
+offset_bottom = 185.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_kakhj")
+theme_override_font_sizes/font_size = 100
+text = "
+x 3"
+metadata/_edit_use_anchors_ = true
+
+[node name="WaveLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+anchors_preset = -1
+anchor_left = -0.0828125
+anchor_top = -0.037963
+anchor_right = -0.0828125
+anchor_bottom = -0.037963
+offset_left = 1000.0
+offset_top = 64.0
+offset_right = 1479.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("2_kakhj")
+theme_override_font_sizes/font_size = 100
+text = "WAVE : 1
+"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HpBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = -1
+anchor_top = 0.00740741
+anchor_bottom = 0.00740741
+offset_left = 144.0
+offset_top = 32.0
+offset_right = 648.0
+offset_bottom = 96.0
+theme = ExtResource("3_qj7ll")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_kakhj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_lml6f")
+step = 1.0
+value = 100.0
+rounded = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

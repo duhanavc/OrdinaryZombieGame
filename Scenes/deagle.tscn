@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://qrvglhsdhqlr"]
+
+[ext_resource type="Texture2D" uid="uid://crokkjb5qx42q" path="res://Sprites/Pistol_V1.00 - SHOOTING (ALL FX).png" id="1_l8r4e"]
+[ext_resource type="Script" path="res://Scripts/deagle.gd" id="2_krobh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo12y"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(0, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jchgs"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(80, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5tgn"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(160, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w76xh"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(240, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7apo"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(320, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7si2"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(400, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8kln"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(480, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jxuo"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(560, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi82p"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(640, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbp75"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(720, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6vlb"]
+atlas = ExtResource("1_l8r4e")
+region = Rect2(800, 0, 80, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfpdq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo12y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jchgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5tgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w76xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7apo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7si2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8kln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jxuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi82p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6vlb")
+}],
+"loop": false,
+"name": &"shootAnim",
+"speed": 25.0
+}]
+
+[node name="deagle" type="Node2D"]
+position = Vector2(3.8147e-06, -9.53674e-07)
+scale = Vector2(3.6, 3.6)
+script = ExtResource("2_krobh")
+
+[node name="deagleAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(11.1111, 4.44444)
+sprite_frames = SubResource("SpriteFrames_jfpdq")
+animation = &"shootAnim"
+frame = 10
+frame_progress = 1.0
+
+[node name="BulletPos" type="Marker2D" parent="."]
+position = Vector2(33.3333, -6.66667)
