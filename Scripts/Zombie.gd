@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+class_name Zombie
+
 @onready var visual = $aniSprite
 @onready var velocityComp = $VelocityComponent
-
 @onready var healthComponent : HealthComponent = $HealthComponent
 
 var player = Player.new()
@@ -44,7 +45,7 @@ func dealDamage():
 	await get_tree().create_timer(0.1).timeout## Bu şekilde zaman blokları ekleyebiliyoruz.
 	$aniSprite.modulate = Color.WHITE
 	$AudioStreamPlayer2D.play()
-	healthComponent.damage(10)
+	healthComponent.damage(30)
 
 
 

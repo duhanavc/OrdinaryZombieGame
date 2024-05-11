@@ -1,5 +1,7 @@
 extends Node
-
+class_name enemySpawner
+var enemiesLayer
+static var createdEnemyAmount = 0
 const spawnRad = 320
 var wantedSpawnAmount
 @export var zombie: PackedScene
@@ -44,8 +46,9 @@ func on_Timer_timeout():
 		
 	var enemyScene = enemyTable.pick_item()
 	var enemy = enemyScene.instantiate() as Node2D
+	createdEnemyAmount += 1
 	
-	var enemiesLayer = get_tree().get_first_node_in_group("EntitiesLayer")
+	enemiesLayer = get_tree().get_first_node_in_group("EntitiesLayer")
 	enemiesLayer.add_child(enemy)
 	enemy.global_position = getSpawnPos()
 

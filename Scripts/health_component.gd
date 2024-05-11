@@ -3,10 +3,12 @@ extends Node
 class_name HealthComponent #class name diğer scriptlerden erişilebilir hale getiriyoruz
 
 #kendimiz sinyal oluşturabilmemiz için sağ tarafa ekliyor
-
 signal died #ölmesi için
 signal healthChanged #can değişikliği
-signal healPlayer #can artması için 
+signal healPlayer #can artması için
+ 
+var world =  World.new()
+
 
 @export var maxHealth :  float = 30
 @export var healed : float = 10 # eklenilen can miktarı
@@ -35,7 +37,6 @@ func checkZombieDeath():
 	var enemy = is_in_group("Zombie")
 	if currentHealth <= 0:
 		died.emit()
-		isDead = true
 		if owner.is_in_group("Zombie"): #parenti alır ama wolrd de bunu yazarsak worldün en üstündekini alır eğer scene değilsse
 			owner.queue_free()
 		owner.queue_free()

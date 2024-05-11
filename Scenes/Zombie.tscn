@@ -145,7 +145,7 @@ scale = Vector2(0.989697, 1)
 shape = SubResource("CircleShape2D_tmqdt")
 debug_color = Color(0.996946, 3.39322e-06, 1.92523e-07, 0.419608)
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_n7rsd")]
+[node name="HealthComponent" parent="." groups=["Zombies"] instance=ExtResource("4_n7rsd")]
 
 [node name="DropComponent" parent="." node_paths=PackedStringArray("healthComponent") groups=["Zombies"] instance=ExtResource("3_0omxt")]
 healthComponent = NodePath("../HealthComponent")
