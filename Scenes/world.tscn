@@ -32,5 +32,6 @@ visible = false
 position = Vector2(972, 444)
 
 [node name="WavePrepareTime" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="WavePrepareTime" to="." method="_on_wave_prepare_time_timeout"]

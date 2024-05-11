@@ -10,6 +10,12 @@ class_name Drop
 @export var kahveScene : PackedScene
 
 static var zombies_Killed = 0 
+#var world = World.new()
+
+#func _physics_process(delta):
+	#if world.EndCurrentWave() == true:
+		#zombies_Killed = 0
+		
 func _ready():
 	(healthComponent as HealthComponent).died.connect(onDied)
 

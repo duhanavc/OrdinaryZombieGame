@@ -1,15 +1,19 @@
 extends Node
+
 class_name enemySpawner
+
 var enemiesLayer
 static var createdEnemyAmount = 0
+static var canEnemySpawn = false
 const spawnRad = 320
 var wantedSpawnAmount
 @export var zombie: PackedScene
 
 @onready var timer = $spawnCoolDown
-
+var spawnerAktif : bool
 var enemyTable = weightedTable.new()
 var baseSpawnTime = 0
+var world = World.new()
 
 func _ready():
 	enemyTable.add_item(zombie,1)
@@ -44,12 +48,15 @@ func on_Timer_timeout():
 	if player == null:
 		return
 		
-	var enemyScene = enemyTable.pick_item()
-	var enemy = enemyScene.instantiate() as Node2D
-	createdEnemyAmount += 1
+	if spawnerAktif:
+		var enemyScene = enemyTable.pick_item()
+		var enemy = enemyScene.instantiate() as Node2D
+		createdEnemyAmount += 1
 	
-	enemiesLayer = get_tree().get_first_node_in_group("EntitiesLayer")
-	enemiesLayer.add_child(enemy)
-	enemy.global_position = getSpawnPos()
+		enemiesLayer = get_tree().get_first_node_in_group("EntitiesLayer")
+		enemiesLayer.add_child(enemy)
+		enemy.global_position = getSpawnPos()
 
 
+func _physics_process(delta):
+	spawnerAktif = world.enemySpawnerActive
