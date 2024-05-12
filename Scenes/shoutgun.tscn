@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0yqxtw0237bm"]
+[gd_scene load_steps=20 format=3 uid="uid://d0yqxtw0237bm"]
 
 [ext_resource type="Texture2D" uid="uid://bmu6mjqyxnj37" path="res://Sprites/final.png" id="1_lsqfr"]
+[ext_resource type="Texture2D" uid="uid://ksmmuwwsokrk" path="res://Sprites/gold.png" id="2_niqmf"]
+[ext_resource type="Texture2D" uid="uid://yrk2fnamtvwd" path="res://Sprites/cake8.png" id="3_2y1vc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0728o"]
 atlas = ExtResource("1_lsqfr")
@@ -116,6 +118,7 @@ animations = [{
 }]
 
 [node name="Shoutgun" type="Node2D"]
+scale = Vector2(3.34, 3.34)
 
 [node name="ShoutgunAnim" type="AnimatedSprite2D" parent="."]
 position = Vector2(45.235, 0)
@@ -126,7 +129,17 @@ animation = &"shootShoutgun"
 position = Vector2(50.04, 0)
 
 [node name="ShoutgunPosUp" type="Marker2D" parent="ShoutgunPos"]
-position = Vector2(-0.0400009, -25)
+position = Vector2(140, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShoutgunPos/ShoutgunPosUp"]
+texture = ExtResource("2_niqmf")
 
 [node name="ShoutgunPosDown" type="Marker2D" parent="ShoutgunPos"]
-position = Vector2(-0.0400009, 25)
+position = Vector2(140, 25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShoutgunPos/ShoutgunPosDown"]
+texture = ExtResource("2_niqmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShoutgunPos"]
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("3_2y1vc")

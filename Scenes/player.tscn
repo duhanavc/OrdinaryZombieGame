@@ -166,8 +166,6 @@ stream = ExtResource("4_7cscl")
 [node name="ShoutgunAttackSpeed" type="Timer" parent="."]
 
 [node name="Shoutgun" parent="." instance=ExtResource("6_pob2w")]
-position = Vector2(-0.09, -12.9)
-scale = Vector2(3.34, 3.34)
 
 [connection signal="timeout" from="pistolAttackSpeed" to="." method="_on_pistol_attack_speed_timeout"]
 [connection signal="timeout" from="ShoutgunAttackSpeed" to="." method="_on_shoutgun_attack_speed_timeout"]
