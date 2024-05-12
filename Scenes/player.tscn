@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dem1i0vyvamqd"]
+[gd_scene load_steps=13 format=3 uid="uid://dem1i0vyvamqd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bk0r"]
 [ext_resource type="Texture2D" uid="uid://xgq20tgi82m5" path="res://Sprites/AmongUs/walkAll.png" id="2_hbp8u"]
@@ -83,9 +83,53 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_xebwy"]
+resource_name = "standingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_shsth"]
+resource_name = "standingRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaem2"]
 _data = {
 "RESET": SubResource("Animation_gnd6k"),
+"standingLeft": SubResource("Animation_xebwy"),
+"standingRight": SubResource("Animation_shsth"),
 "walkLeft": SubResource("Animation_y7p1f"),
 "walkRight": SubResource("Animation_mfprl")
 }
@@ -100,6 +144,7 @@ shape = SubResource("CapsuleShape2D_nboj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hbp8u")
+flip_h = true
 hframes = 12
 frame = 1
 

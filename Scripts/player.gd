@@ -30,13 +30,13 @@ func _physics_process(delta):
 	elif mousePos.x < position.x:
 		isFacingRight = false
 
+
 	if isFacingRight == true:
 		playerAnimations.play("walkRight")
 		$deagle.scale.y = 3.6 
 	if isFacingRight == false:
 		playerAnimations.play("walkLeft")
 		$deagle.scale.y = -3.6 
-		
 	
 	
 func _process(delta):

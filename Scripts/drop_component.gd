@@ -10,12 +10,7 @@ class_name Drop
 @export var kahveScene : PackedScene
 
 static var zombies_Killed = 0 
-#var world = World.new()
 
-#func _physics_process(delta):
-	#if world.EndCurrentWave() == true:
-		#zombies_Killed = 0
-		
 func _ready():
 	(healthComponent as HealthComponent).died.connect(onDied)
 
@@ -48,6 +43,3 @@ func onDied():
 		var entitiesLayer = get_tree().get_first_node_in_group("EntitiesLayer")
 		entitiesLayer.add_child(kahveInstance)
 		kahveInstance.global_position = SpawnPos
-		
-		
-	
