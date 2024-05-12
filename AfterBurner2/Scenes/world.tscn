@@ -1,0 +1,435 @@
+[gd_scene load_steps=32 format=3 uid="uid://djaiapiil83v2"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_5bifh"]
+[ext_resource type="Texture2D" uid="uid://exm1k517785j" path="res://icon.svg" id="1_ci557"]
+[ext_resource type="Script" path="res://Scripts/enterComputer.gd" id="1_ivqxr"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_jceax"]
+[ext_resource type="Script" path="res://Scripts/Apps.gd" id="5_8g3bc"]
+[ext_resource type="Texture2D" uid="uid://c4yxafx1rjain" path="res://Sprites/L_unpressed.png" id="6_7wsdx"]
+[ext_resource type="Texture2D" uid="uid://c1ad01fpfss4g" path="res://Sprites/pcBackGroundv1.png" id="6_xljk6"]
+[ext_resource type="Texture2D" uid="uid://c2xyqg6xeihi" path="res://Sprites/L_pressed.png" id="7_k2oc8"]
+[ext_resource type="Texture2D" uid="uid://1tfd8fx5jruf" path="res://Sprites/WINDOWS_unpressed.png" id="8_e16tn"]
+[ext_resource type="Texture2D" uid="uid://bxvwgt05nnl6g" path="res://Sprites/WINDOWS_pressed.png" id="9_dxj7m"]
+[ext_resource type="Texture2D" uid="uid://b1ud8uhoq6omc" path="res://Sprites/Gmail.png" id="10_8dkf4"]
+[ext_resource type="Script" path="res://Scripts/mailApp.gd" id="12_bqyhh"]
+[ext_resource type="Texture2D" uid="uid://3exm7qvumwij" path="res://Sprites/pngkey.com-close-button-png-521775.png" id="13_y1wgl"]
+[ext_resource type="Texture2D" uid="uid://bvtyv8ssrrciu" path="res://Sprites/Youtube.png" id="14_4t5gh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3ulj"]
+radius = 18.0278
+
+[sub_resource type="Animation" id="Animation_tiduj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_tpnhe"]
+resource_name = "idle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_e188c"]
+resource_name = "lost"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.3, 0.3), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kc6mh"]
+_data = {
+"RESET": SubResource("Animation_tiduj"),
+"idle": SubResource("Animation_tpnhe"),
+"lost": SubResource("Animation_e188c")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j55l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32tij"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_7o6nl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.33, 0.33)]
+}
+
+[sub_resource type="Animation" id="Animation_li2ux"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.33, 0.33), Vector2(0.66, 0.66), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bb3pi"]
+_data = {
+"RESET": SubResource("Animation_7o6nl"),
+"open": SubResource("Animation_li2ux")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2nho"]
+border_width_top = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpi7h"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.168627, 0.168627, 0.168627, 1)
+shadow_color = Color(0.666667, 0.666667, 0.666667, 0.6)
+shadow_size = 3
+
+[sub_resource type="Animation" id="Animation_q4dpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_gtgir"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1), Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_c4bsj"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wskdu"]
+_data = {
+"RESET": SubResource("Animation_q4dpf"),
+"close": SubResource("Animation_gtgir"),
+"open": SubResource("Animation_c4bsj")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thccd"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_5bifh")
+
+[node name="Pc" type="Sprite2D" parent="."]
+position = Vector2(21, 18.5)
+scale = Vector2(0.171875, 0.148438)
+texture = ExtResource("1_ci557")
+
+[node name="playerDetector" type="Area2D" parent="."]
+position = Vector2(21, 18.5)
+script = ExtResource("1_ivqxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+shape = SubResource("CircleShape2D_g3ulj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+anchor_mode = 0
+zoom = Vector2(8, 8)
+
+[node name="actionLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -6.0
+offset_right = 26.0
+offset_bottom = 17.0
+scale = Vector2(0.3, 1e-05)
+pivot_offset = Vector2(5, 12)
+theme_override_colors/font_color = Color(0.258824, 0.482353, 0.156863, 1)
+text = "E"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="actionLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_kc6mh")
+}
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(103, 25)
+script = ExtResource("3_jceax")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("RectangleShape2D_8j55l")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ci557")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="mailApp" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -999.6
+offset_top = -580.4
+offset_right = -792.6
+offset_bottom = -451.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+pivot_offset = Vector2(102.75, 65)
+theme_override_styles/panel = SubResource("StyleBoxFlat_32tij")
+
+[node name="mailClose" type="TextureButton" parent="CanvasLayer/mailApp"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 1.0
+offset_right = 1492.0
+offset_bottom = 1301.0
+scale = Vector2(0.01, 0.01)
+texture_normal = ExtResource("13_y1wgl")
+
+[node name="openAnim" type="AnimationPlayer" parent="CanvasLayer/mailApp"]
+libraries = {
+"": SubResource("AnimationLibrary_bb3pi")
+}
+
+[node name="bahadır" type="RichTextLabel" parent="CanvasLayer/mailApp"]
+layout_mode = 0
+offset_left = 3.50757
+offset_top = 16.5152
+offset_right = 123.508
+offset_bottom = 41.5152
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[color=#ff0000]Bahadır Birinci
+"
+tab_size = 1
+
+[node name="messageButton" type="Button" parent="CanvasLayer/mailApp"]
+layout_mode = 0
+offset_left = 91.3863
+offset_top = 16.5151
+offset_right = 232.386
+offset_bottom = 47.5151
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.501961, 0.501961, 0.501961, 1)
+toggle_mode = true
+text = "Bir mailiniz var!"
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/mailApp/messageButton"]
+layer = 2
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="messageBox" type="Panel" parent="CanvasLayer/mailApp/messageButton/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -930.7
+offset_top = -572.5
+offset_right = -890.7
+offset_bottom = -532.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.2, 3.2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2nho")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/mailApp/messageButton/CanvasLayer/messageBox"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 400.0
+offset_bottom = 355.0
+scale = Vector2(0.1, 0.1)
+bbcode_enabled = true
+text = "[color=#000000]merhaba büyük ihtimal bunu okuduğunda ben zaten bu ölmüşümdür.Ölmeden önce zombiler hakkında oldukça bilgi toplamıştım.İşte kapıyı açmana yarıyacak şifre işte bu:[wave amp=50 freq -2]blablabla"
+scroll_active = false
+
+[node name="messageClose" type="TextureButton" parent="CanvasLayer/mailApp/messageButton/CanvasLayer/messageBox"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 1.0
+offset_right = 1336.0
+offset_bottom = 1301.0
+scale = Vector2(0.003, 0.003)
+texture_normal = ExtResource("13_y1wgl")
+
+[node name="desktop" type="CanvasLayer" parent="."]
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="Panel" type="Panel" parent="desktop"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -931.6
+offset_top = -522.8
+offset_right = -891.6
+offset_bottom = -495.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(20, 13.5)
+tooltip_text = "Win L"
+theme_override_styles/panel = SubResource("StyleBoxFlat_dpi7h")
+script = ExtResource("5_8g3bc")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="barMail" type="TextureButton" parent="desktop/Panel"]
+layout_mode = 0
+offset_left = 7.46667
+offset_top = 23.8333
+offset_right = 13.4667
+offset_bottom = 28.8333
+scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="desktop/Panel"]
+position = Vector2(20, 13.5)
+scale = Vector2(0.0475, 0.0555556)
+texture = ExtResource("6_xljk6")
+
+[node name="openPcAnim" type="AnimationPlayer" parent="desktop/Panel"]
+libraries = {
+"": SubResource("AnimationLibrary_wskdu")
+}
+
+[node name="L" type="TextureButton" parent="desktop/Panel"]
+layout_mode = 0
+offset_left = 31.0667
+offset_top = 23.3
+offset_right = 48.0667
+offset_bottom = 39.3
+scale = Vector2(0.2, 0.2)
+toggle_mode = true
+texture_normal = ExtResource("6_7wsdx")
+texture_pressed = ExtResource("7_k2oc8")
+
+[node name="Windows" type="TextureButton" parent="desktop/Panel"]
+layout_mode = 0
+offset_left = 0.533333
+offset_top = 22.9
+offset_right = 17.5333
+offset_bottom = 38.9
+scale = Vector2(0.2, 0.2)
+tooltip_text = "uyku modu"
+toggle_mode = true
+texture_normal = ExtResource("8_e16tn")
+texture_pressed = ExtResource("9_dxj7m")
+
+[node name="Mail" type="TextureButton" parent="desktop/Panel"]
+layout_mode = 0
+offset_left = -7.2
+offset_top = -5.63335
+offset_right = 16.8
+offset_bottom = 18.3666
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(10, 12)
+texture_normal = ExtResource("10_8dkf4")
+script = ExtResource("12_bqyhh")
+
+[node name="youtube" type="TextureButton" parent="desktop/Panel"]
+layout_mode = 0
+offset_left = -12.8
+offset_top = -2.56669
+offset_right = 18.2
+offset_bottom = 21.4333
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(16, 12)
+texture_normal = ExtResource("14_4t5gh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="desktop/Panel/youtube"]
+
+[node name="Panel" type="Panel" parent="desktop/Panel/youtube/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_thccd")
+
+[connection signal="body_entered" from="playerDetector" to="playerDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="playerDetector" to="playerDetector" method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/mailApp/mailClose" to="desktop/Panel/Mail" method="_on_mail_close_pressed"]
+[connection signal="pressed" from="CanvasLayer/mailApp/messageButton" to="desktop/Panel/Mail" method="_on_message_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/mailApp/messageButton/CanvasLayer/messageBox/messageClose" to="desktop/Panel/Mail" method="_on_message_close_pressed"]
+[connection signal="pressed" from="desktop/Panel/barMail" to="desktop/Panel/Mail" method="_on_bar_mail_pressed"]
+[connection signal="pressed" from="desktop/Panel/Mail" to="desktop/Panel/Mail" method="_on_pressed"]

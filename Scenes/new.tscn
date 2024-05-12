@@ -1,0 +1,1117 @@
+[gd_scene load_steps=49 format=3 uid="uid://b3uov22fj7wtk"]
+
+[ext_resource type="Texture2D" uid="uid://bj1sxinll0f8o" path="res://Sprites/PC/newBackground.png" id="1_bau6o"]
+[ext_resource type="Texture2D" uid="uid://b1ud8uhoq6omc" path="res://Sprites/PC/Gmail.png" id="2_3ffp2"]
+[ext_resource type="Script" path="res://Scripts/AfterBurner2/realApps.gd" id="2_64dgv"]
+[ext_resource type="Texture2D" uid="uid://bvtyv8ssrrciu" path="res://Sprites/PC/Youtube.png" id="3_jn3tk"]
+[ext_resource type="Texture2D" uid="uid://p1aay75y676s" path="res://Sprites/PC/[1] Normal.png" id="4_7n0bm"]
+[ext_resource type="Texture2D" uid="uid://bpwdvmetc4emj" path="res://Sprites/PC/steamPanel.png" id="4_f01tf"]
+[ext_resource type="Texture2D" uid="uid://bdlc8xqtydklu" path="res://Sprites/PC/youtubePanel.png" id="5_5miet"]
+[ext_resource type="Texture2D" uid="uid://dea5gl3tlq1ap" path="res://Sprites/PC/[2] Clicked.png" id="5_5ow6l"]
+[ext_resource type="Texture2D" uid="uid://bo4u0vq4622yk" path="res://Sprites/PC/NicePng_red-cross-mark-png_3625552.png" id="5_6eaud"]
+[ext_resource type="Texture2D" uid="uid://c70emwg7cspk1" path="res://Sprites/PC/[3] Hover.png" id="6_6svie"]
+[ext_resource type="Texture2D" uid="uid://1wn72x7w3cu3" path="res://Sprites/PC/sleepWakeScreen/closeScreen6.png" id="6_kcf6b"]
+[ext_resource type="Texture2D" uid="uid://cc7wfwtne33u5" path="res://Sprites/PC/tinderPanel.png" id="7_kpoq7"]
+[ext_resource type="Texture2D" uid="uid://boyxnvmfnubb1" path="res://Sprites/PC/kahve.png" id="8_c3nic"]
+[ext_resource type="Texture2D" uid="uid://dkpaucwik1wwd" path="res://Sprites/PC/cikolata.png" id="10_q0ect"]
+[ext_resource type="Texture2D" uid="uid://7boswnfora5l" path="res://Sprites/PC/SATGAN.png" id="12_x3dhr"]
+[ext_resource type="Texture2D" uid="uid://cea6r17jq6fge" path="res://Sprites/PC/Extending Padlock - GOLD - Spritesheet.png" id="16_uwuce"]
+[ext_resource type="Texture2D" uid="uid://do8gada345vwk" path="res://Sprites/PC/images.jpg" id="17_ocmnw"]
+[ext_resource type="Texture2D" uid="uid://jh4egexc3oou" path="res://Sprites/PC/denise-heeffer-grass2.jpg" id="18_kr3sc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw13d"]
+border_width_top = 20
+border_color = Color(0.215686, 0.215686, 0.215686, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4sxe"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctgxu"]
+bg_color = Color(0.32549, 0.0901961, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot4iy"]
+bg_color = Color(0.227451, 0.227451, 0.227451, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Animation" id="Animation_yxk74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_3yg5p"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bai5m"]
+_data = {
+"RESET": SubResource("Animation_yxk74"),
+"open": SubResource("Animation_3yg5p")
+}
+
+[sub_resource type="Animation" id="Animation_mkeu2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_s3hlc"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdiyr"]
+_data = {
+"RESET": SubResource("Animation_mkeu2"),
+"open": SubResource("Animation_s3hlc")
+}
+
+[sub_resource type="Animation" id="Animation_n8ucx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_228jh"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nfwc"]
+_data = {
+"RESET": SubResource("Animation_n8ucx"),
+"open": SubResource("Animation_228jh")
+}
+
+[sub_resource type="Animation" id="Animation_72fwa"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.00136e-05, 1.00136e-05), Vector2(0.02, 0.02), Vector2(0.04, 0.04), Vector2(0.05, 0.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_he26t"]
+_data = {
+"open": SubResource("Animation_72fwa")
+}
+
+[sub_resource type="Animation" id="Animation_t5r5i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_07u5d"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnhhy"]
+_data = {
+"RESET": SubResource("Animation_t5r5i"),
+"open": SubResource("Animation_07u5d")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh5sb"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0784314, 0.0980392, 0.0352941, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.992157, 0.976471, 0.984314, 0.6)
+shadow_size = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6t21"]
+texture = ExtResource("6_kcf6b")
+
+[sub_resource type="Animation" id="Animation_tw6l7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_sst62"]
+resource_name = "sleepCome"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0.2), Vector2(1, 0.4), Vector2(1, 0.6), Vector2(1, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mivfs"]
+_data = {
+"RESET": SubResource("Animation_tw6l7"),
+"sleepCome": SubResource("Animation_sst62")
+}
+
+[sub_resource type="Animation" id="Animation_i0p2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../sleepScreen:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_50j86"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../sleepScreen:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8), Vector2(1, 0.6), Vector2(1, 0.4), Vector2(1, 0.2), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ois1q"]
+_data = {
+"RESET": SubResource("Animation_i0p2d"),
+"open": SubResource("Animation_50j86")
+}
+
+[sub_resource type="Animation" id="Animation_4o6n0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../padlock:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_i7ti3"]
+resource_name = "openPadlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../padlock:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 15, 15, 16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayg20"]
+_data = {
+"RESET": SubResource("Animation_4o6n0"),
+"openPadlock": SubResource("Animation_i7ti3")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otjkq"]
+texture = ExtResource("17_ocmnw")
+
+[node name="new" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 228.0
+offset_top = 109.0
+offset_right = 1449.0
+offset_bottom = 830.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_bau6o")
+script = ExtResource("2_64dgv")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 21.6667
+offset_top = 7.49999
+offset_right = 122.667
+offset_bottom = 185.5
+scale = Vector2(3, 3)
+
+[node name="mail" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_3ffp2")
+
+[node name="mailApp" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 88.6111
+offset_top = 16.6667
+offset_right = 318.611
+offset_bottom = 177.667
+theme_override_styles/panel = SubResource("StyleBoxFlat_uw13d")
+
+[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 131.944
+offset_top = 36.3889
+offset_right = 140.944
+offset_bottom = 178.389
+theme_override_styles/panel = SubResource("StyleBoxFlat_d4sxe")
+
+[node name="mailOpened" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 151.111
+offset_top = 45.0
+offset_right = 199.111
+offset_bottom = 61.0
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="openedMailText" type="Label" parent="NinePatchRect/VBoxContainer/mail/mailOpened"]
+layout_mode = 0
+offset_left = 9.33331
+offset_top = -1.38889
+offset_right = 49.3333
+offset_bottom = 21.6111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Open"
+
+[node name="ilkPass" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail/mailOpened"]
+visible = false
+layout_mode = 0
+offset_left = 53.3333
+offset_top = -3.88889
+offset_right = 165.333
+offset_bottom = 115.111
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctgxu")
+
+[node name="pass" type="RichTextLabel" parent="NinePatchRect/VBoxContainer/mail/mailOpened"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = 7.0
+offset_right = 156.0
+offset_bottom = 101.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "İlk şifren bu:[color=red][shake rate=20.0 level=5 connected=1]blablabla"
+
+[node name="mailOpenedClose" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail/mailOpened"]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = -2.0
+offset_right = 167.0
+offset_bottom = 16.0
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="mailOpened2" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 151.111
+offset_top = 77.7778
+offset_right = 199.111
+offset_bottom = 93.7778
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="openedMailText" type="Label" parent="NinePatchRect/VBoxContainer/mail/mailOpened2"]
+layout_mode = 0
+offset_left = 9.33331
+offset_top = -1.38889
+offset_right = 49.3333
+offset_bottom = 21.6111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Open"
+
+[node name="ikinciPass" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail/mailOpened2"]
+visible = false
+layout_mode = 0
+offset_left = 52.5
+offset_top = -30.5556
+offset_right = 164.5
+offset_bottom = 88.4445
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctgxu")
+
+[node name="pass2" type="RichTextLabel" parent="NinePatchRect/VBoxContainer/mail/mailOpened2"]
+visible = false
+layout_mode = 0
+offset_left = 61.3889
+offset_top = -22.5
+offset_right = 156.389
+offset_bottom = 71.5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "İkinci şifren bu:[color=red][shake rate=20.0 level=5 connected=1]blablabla"
+
+[node name="mailOpenedClose2" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail/mailOpened2"]
+visible = false
+layout_mode = 0
+offset_left = 150.833
+offset_top = -27.7778
+offset_right = 780.833
+offset_bottom = 602.222
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="mailOpened3" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 151.111
+offset_top = 109.444
+offset_right = 199.111
+offset_bottom = 125.444
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="openedMailText" type="Label" parent="NinePatchRect/VBoxContainer/mail/mailOpened3"]
+layout_mode = 0
+offset_left = 9.33331
+offset_top = -1.38889
+offset_right = 49.3333
+offset_bottom = 21.6111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Open"
+
+[node name="üçüncüPass" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail/mailOpened3"]
+visible = false
+layout_mode = 0
+offset_left = 51.1111
+offset_top = -60.2778
+offset_right = 163.111
+offset_bottom = 58.7222
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctgxu")
+
+[node name="pass3" type="RichTextLabel" parent="NinePatchRect/VBoxContainer/mail/mailOpened3"]
+visible = false
+layout_mode = 0
+offset_left = 59.7222
+offset_top = -49.4444
+offset_right = 154.722
+offset_bottom = 44.5556
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Üçüncü şifren bu:[color=red][shake rate=20.0 level=5 connected=1]blablabla"
+
+[node name="mailOpenedClose3" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail/mailOpened3"]
+visible = false
+layout_mode = 0
+offset_left = 146.389
+offset_top = -54.4444
+offset_right = 776.389
+offset_bottom = 575.556
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="mailOpened4" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 150.556
+offset_top = 141.111
+offset_right = 198.556
+offset_bottom = 157.111
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="openedMailText" type="Label" parent="NinePatchRect/VBoxContainer/mail/mailOpened4"]
+layout_mode = 0
+offset_left = 9.33331
+offset_top = -1.38889
+offset_right = 49.3333
+offset_bottom = 21.6111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Open"
+
+[node name="dördüncüPass" type="PanelContainer" parent="NinePatchRect/VBoxContainer/mail/mailOpened4"]
+visible = false
+layout_mode = 0
+offset_left = 51.3889
+offset_top = -91.1111
+offset_right = 163.389
+offset_bottom = 27.8889
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctgxu")
+
+[node name="pass4" type="RichTextLabel" parent="NinePatchRect/VBoxContainer/mail/mailOpened4"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = -78.6111
+offset_right = 155.0
+offset_bottom = 15.3889
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Dördüncü şifren bu:[color=red][shake rate=20.0 level=5 connected=1]blablabla"
+
+[node name="mailOpenedClose4" type="TextureButton" parent="NinePatchRect/VBoxContainer/mail/mailOpened4"]
+visible = false
+layout_mode = 0
+offset_left = 146.667
+offset_top = -86.6666
+offset_right = 776.667
+offset_bottom = 543.333
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="mailLabel" type="Label" parent="NinePatchRect/VBoxContainer/mail"]
+visible = false
+layout_mode = 0
+offset_left = 183.333
+offset_top = 16.3889
+offset_right = 223.333
+offset_bottom = 39.3889
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Mail"
+
+[node name="youtube" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_jn3tk")
+
+[node name="youtubeApp" type="PanelContainer" parent="NinePatchRect/VBoxContainer/youtube"]
+visible = false
+layout_mode = 0
+offset_left = 88.6111
+offset_top = -11.3333
+offset_right = 318.611
+offset_bottom = 149.667
+theme_override_styles/panel = SubResource("StyleBoxFlat_uw13d")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/youtube/youtubeApp"]
+layout_mode = 2
+texture = ExtResource("5_5miet")
+expand_mode = 1
+
+[node name="youtubeLabel" type="Label" parent="NinePatchRect/VBoxContainer/youtube"]
+visible = false
+layout_mode = 0
+offset_left = 161.667
+offset_top = -12.1667
+offset_right = 238.667
+offset_bottom = 10.8333
+theme_override_colors/font_color = Color(0.968627, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Godotube"
+
+[node name="steam" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 363.0
+offset_top = 658.0
+offset_right = 421.0
+offset_bottom = 705.0
+
+[node name="steamApp" type="PanelContainer" parent="NinePatchRect/steam"]
+visible = false
+layout_mode = 0
+offset_left = -70.4999
+offset_top = -599.667
+offset_right = 159.5
+offset_bottom = -438.667
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_uw13d")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/steam/steamApp"]
+layout_mode = 2
+texture = ExtResource("4_f01tf")
+expand_mode = 1
+
+[node name="steamLabel" type="Label" parent="NinePatchRect/steam"]
+visible = false
+layout_mode = 0
+offset_left = 224.5
+offset_top = -584.667
+offset_right = 312.5
+offset_bottom = -542.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.517647, 0.517647, 1)
+theme_override_font_sizes/font_size = 30
+text = "Buhar"
+
+[node name="tinder" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 444.167
+offset_top = 660.833
+offset_right = 484.167
+offset_bottom = 700.833
+
+[node name="tinderApp" type="PanelContainer" parent="NinePatchRect/tinder"]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = -607.0
+offset_right = 114.0
+offset_bottom = -442.0
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_uw13d")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/tinder/tinderApp"]
+layout_mode = 2
+texture = ExtResource("7_kpoq7")
+expand_mode = 1
+
+[node name="shop" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 658.0
+offset_right = 340.0
+offset_bottom = 698.0
+
+[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect/shop"]
+visible = false
+layout_mode = 0
+offset_left = 118.0
+offset_top = -523.833
+offset_right = 596.0
+offset_bottom = -113.833
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(239, 205)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ot4iy")
+
+[node name="panelAnimation" type="AnimationPlayer" parent="NinePatchRect/shop/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bai5m")
+}
+
+[node name="coffee" type="TextureRect" parent="NinePatchRect/shop"]
+visible = false
+layout_mode = 0
+offset_left = 154.667
+offset_top = -481.333
+offset_right = 194.667
+offset_bottom = -441.333
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("8_c3nic")
+metadata/_edit_group_ = true
+
+[node name="buyCoffee" type="TextureButton" parent="NinePatchRect/shop/coffee"]
+layout_mode = 0
+offset_left = 66.6663
+offset_top = 15.833
+offset_right = 123.666
+offset_bottom = 44.833
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="Label" type="Label" parent="NinePatchRect/shop/coffee/buyCoffee"]
+layout_mode = 0
+offset_left = 8.33333
+offset_top = -5.0
+offset_right = 48.3333
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "BUY"
+
+[node name="Label" type="Label" parent="NinePatchRect/shop/coffee"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 9.0
+offset_right = 399.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0.729412, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Kahve hareket hızını %10 artırır!"
+
+[node name="marketLabel" type="Label" parent="NinePatchRect/shop/coffee"]
+layout_mode = 0
+offset_left = 41.6667
+offset_top = -33.3333
+offset_right = 357.667
+offset_bottom = -5.33331
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "SİBER VATAN MARKET"
+horizontal_alignment = 1
+
+[node name="coffeAnim" type="AnimationPlayer" parent="NinePatchRect/shop/coffee"]
+libraries = {
+"": SubResource("AnimationLibrary_vdiyr")
+}
+
+[node name="chocolatte" type="TextureRect" parent="NinePatchRect/shop"]
+visible = false
+layout_mode = 0
+offset_left = 154.667
+offset_top = -253.0
+offset_right = 194.667
+offset_bottom = -213.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("10_q0ect")
+metadata/_edit_group_ = true
+
+[node name="buyCoffee2" type="TextureButton" parent="NinePatchRect/shop/chocolatte"]
+layout_mode = 0
+offset_left = 63.333
+offset_top = 11.6667
+offset_right = 111.333
+offset_bottom = 31.6667
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="Label" type="Label" parent="NinePatchRect/shop/chocolatte/buyCoffee2"]
+layout_mode = 0
+offset_left = 9.16667
+offset_top = -5.0
+offset_right = 49.1667
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "BUY"
+
+[node name="Label" type="Label" parent="NinePatchRect/shop/chocolatte"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 9.0
+offset_right = 400.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.545098, 0.847059, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Çikolata canını %10 yeniler!"
+
+[node name="chocolatteAnim" type="AnimationPlayer" parent="NinePatchRect/shop/chocolatte"]
+libraries = {
+"": SubResource("AnimationLibrary_4nfwc")
+}
+
+[node name="closeshop" type="TextureButton" parent="NinePatchRect/shop"]
+visible = false
+layout_mode = 0
+offset_left = 251.333
+offset_top = -810.5
+offset_right = 881.333
+offset_bottom = -180.5
+scale = Vector2(1.00136e-05, 1.00136e-05)
+pivot_offset = Vector2(315, 315)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="closeShopAnim" type="AnimationPlayer" parent="NinePatchRect/shop/closeshop"]
+libraries = {
+"": SubResource("AnimationLibrary_he26t")
+}
+
+[node name="satgan" type="Node2D" parent="NinePatchRect/shop"]
+visible = false
+scale = Vector2(0.3, 0.3)
+
+[node name="SATGAN" type="Sprite2D" parent="NinePatchRect/shop/satgan"]
+position = Vector2(198.833, -342.167)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_x3dhr")
+hframes = 14
+vframes = 4
+
+[node name="buySatgan" type="TextureButton" parent="NinePatchRect/shop/satgan"]
+offset_left = 232.167
+offset_top = -350.5
+offset_right = 281.167
+offset_bottom = -334.5
+texture_normal = ExtResource("4_7n0bm")
+texture_pressed = ExtResource("5_5ow6l")
+texture_hover = ExtResource("6_6svie")
+
+[node name="Label" type="Label" parent="NinePatchRect/shop/satgan/buySatgan"]
+layout_mode = 0
+offset_left = 7.5
+offset_top = -5.00003
+offset_right = 47.5
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "BUY"
+
+[node name="labelSatgan" type="Label" parent="NinePatchRect/shop/satgan"]
+offset_left = 308.833
+offset_top = -355.5
+offset_right = 552.833
+offset_bottom = -332.5
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Shotgun hasarını %x artırır!"
+
+[node name="satganAnim" type="AnimationPlayer" parent="NinePatchRect/shop/satgan"]
+libraries = {
+"": SubResource("AnimationLibrary_fnhhy")
+}
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = -35.0
+offset_right = 10.0
+offset_bottom = 747.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh5sb")
+
+[node name="Panel2" type="Panel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1217.5
+offset_top = -35.8333
+offset_right = 1253.5
+offset_bottom = 1201.17
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh5sb")
+
+[node name="Panel3" type="Panel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1249.17
+offset_top = 745.0
+offset_right = 1285.17
+offset_bottom = 1527.0
+rotation = 3.14159
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh5sb")
+
+[node name="Panel4" type="Panel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 757.0
+offset_right = 14.0
+offset_bottom = 2026.0
+rotation = -1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh5sb")
+
+[node name="mailClose" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 924.167
+offset_top = 65.8333
+offset_right = 1554.17
+offset_bottom = 695.833
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="padlock" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(60.0833, 510.417)
+scale = Vector2(1.81313, 1.7)
+texture = ExtResource("16_uwuce")
+hframes = 31
+frame = 15
+
+[node name="sleepScreen" type="PanelContainer" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = -2.0
+offset_right = 1210.0
+offset_bottom = 720.0
+scale = Vector2(1, 0.8)
+pivot_offset = Vector2(600.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6t21")
+
+[node name="sleepAnim" type="AnimationPlayer" parent="NinePatchRect/sleepScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_mivfs")
+}
+
+[node name="sleepButton" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 657.0
+offset_right = 1080.0
+offset_bottom = 705.0
+tooltip_text = "WİNDOWS + L"
+
+[node name="openButton" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 459.0
+offset_top = 275.0
+offset_right = 751.0
+offset_bottom = 392.0
+
+[node name="openPcAnim" type="AnimationPlayer" parent="NinePatchRect/openButton"]
+libraries = {
+"": SubResource("AnimationLibrary_ois1q")
+}
+
+[node name="youtubeClose" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 919.167
+offset_top = 63.3333
+offset_right = 1549.17
+offset_bottom = 693.333
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="steamClose" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 925.0
+offset_top = 63.3333
+offset_right = 1555.0
+offset_bottom = 693.333
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="tinderClose" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 700.833
+offset_top = 60.8333
+offset_right = 1330.83
+offset_bottom = 690.833
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="padlockApp" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 487.0
+offset_right = 90.0
+offset_bottom = 534.0
+
+[node name="openPadlockAnim" type="AnimationPlayer" parent="NinePatchRect/padlockApp"]
+libraries = {
+"": SubResource("AnimationLibrary_ayg20")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 254.167
+offset_top = 106.667
+offset_right = 941.167
+offset_bottom = 539.667
+theme_override_styles/panel = SubResource("StyleBoxTexture_otjkq")
+
+[node name="TextEdit" type="TextEdit" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 440.833
+offset_top = 298.333
+offset_right = 768.833
+offset_bottom = 338.333
+theme_override_colors/font_selected_color = Color(0.6, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.984314, 0, 0, 1)
+placeholder_text = "                           ŞİFREYİ GİR"
+
+[node name="closePadlock" type="TextureButton" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 879.167
+offset_top = 123.333
+offset_right = 1509.17
+offset_bottom = 753.333
+scale = Vector2(0.07, 0.07)
+texture_normal = ExtResource("5_6eaud")
+
+[node name="barMail" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 652.0
+offset_right = 263.0
+offset_bottom = 702.0
+
+[node name="Windows" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 647.0
+offset_right = 66.0
+offset_bottom = 706.0
+
+[node name="background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(958, 540.5)
+scale = Vector2(2.12444, 1.49443)
+texture = ExtResource("18_kr3sc")
+
+[node name="duhan" type="Label" parent="."]
+visible = false
+offset_left = 583.0
+offset_top = 282.0
+offset_right = 684.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0.647059, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Duhan"
+
+[node name="bahadır" type="Label" parent="."]
+visible = false
+offset_left = 583.0
+offset_top = 402.0
+offset_right = 693.0
+offset_bottom = 442.0
+theme_override_colors/font_color = Color(0, 0.45098, 0.0784314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Bahadır"
+
+[node name="kaan" type="Label" parent="."]
+visible = false
+offset_left = 591.0
+offset_top = 511.0
+offset_right = 692.0
+offset_bottom = 551.0
+theme_override_colors/font_color = Color(0.54902, 0, 0.572549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Kaan"
+
+[node name="ilkay" type="Label" parent="."]
+visible = false
+offset_left = 591.0
+offset_top = 631.0
+offset_right = 692.0
+offset_bottom = 671.0
+theme_override_colors/font_color = Color(0.788235, 0.415686, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "İlkay"
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail" to="NinePatchRect" method="_on_mail_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened" to="NinePatchRect" method="_on_mail_opened_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened/mailOpenedClose" to="NinePatchRect" method="_on_mail_opened_close_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened2" to="NinePatchRect" method="_on_mail_opened_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened2/mailOpenedClose2" to="NinePatchRect" method="_on_mail_opened_close_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened3" to="NinePatchRect" method="_on_mail_opened_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened3/mailOpenedClose3" to="NinePatchRect" method="_on_mail_opened_close_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened4" to="NinePatchRect" method="_on_mail_opened_4_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/mail/mailOpened4/mailOpenedClose4" to="NinePatchRect" method="_on_mail_opened_close_4_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/youtube" to="NinePatchRect" method="_on_youtube_pressed"]
+[connection signal="pressed" from="NinePatchRect/steam" to="NinePatchRect" method="_on_steam_pressed"]
+[connection signal="pressed" from="NinePatchRect/tinder" to="NinePatchRect" method="_on_tinder_pressed"]
+[connection signal="pressed" from="NinePatchRect/shop" to="NinePatchRect" method="_on_shop_pressed"]
+[connection signal="pressed" from="NinePatchRect/shop/closeshop" to="NinePatchRect" method="_on_closeshop_pressed"]
+[connection signal="pressed" from="NinePatchRect/mailClose" to="NinePatchRect" method="_on_mail_close_pressed"]
+[connection signal="pressed" from="NinePatchRect/sleepButton" to="NinePatchRect" method="_on_sleep_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/openButton" to="NinePatchRect" method="_on_open_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/youtubeClose" to="NinePatchRect" method="_on_youtube_close_pressed"]
+[connection signal="pressed" from="NinePatchRect/steamClose" to="NinePatchRect" method="_on_steam_close_pressed"]
+[connection signal="pressed" from="NinePatchRect/tinderClose" to="NinePatchRect" method="_on_tinder_close_pressed"]
+[connection signal="pressed" from="NinePatchRect/padlockApp" to="NinePatchRect" method="_on_padlock_app_pressed"]
+[connection signal="text_changed" from="NinePatchRect/TextEdit" to="NinePatchRect" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="NinePatchRect/closePadlock" to="NinePatchRect" method="_on_close_padlock_pressed"]
+[connection signal="pressed" from="NinePatchRect/barMail" to="NinePatchRect" method="_on_bar_mail_pressed"]
+[connection signal="pressed" from="NinePatchRect/Windows" to="NinePatchRect" method="_on_windows_pressed"]

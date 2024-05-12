@@ -1,12 +1,12 @@
-extends CharacterBody2D
-
+extends Area2D
+var direction = Vector2.RIGHT
 var Velocity = Vector2(0,0)
-var speed = 1400
+var speed = 50
+
 func _physics_process(delta):
-	var collision_info =  move_and_collide(Velocity.normalized() * delta * speed)
+	
+	translate(direction.normalized() * speed * delta) 
 
-
-#
 #func setDamage(damage):
 	#print(damage)
 	#dmg = damage

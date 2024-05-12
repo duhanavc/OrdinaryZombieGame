@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbxfw61lb5aev"]
+[gd_scene load_steps=7 format=3 uid="uid://cbxfw61lb5aev"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_lwidi"]
 [ext_resource type="PackedScene" uid="uid://5g150wexitw2" path="res://Scenes/HUDD.tscn" id="2_jjp8n"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dem1i0vyvamqd" path="res://Scenes/player.tscn" id="4_hkx43"]
 [ext_resource type="PackedScene" uid="uid://ff65rksr1vbb" path="res://Scenes/enemy_spawner.tscn" id="5_rxl3d"]
 [ext_resource type="PackedScene" uid="uid://dbnr8w6o0gu62" path="res://Scenes/zombie_boss.tscn" id="6_2tjyv"]
-[ext_resource type="PackedScene" uid="uid://d0yqxtw0237bm" path="res://Scenes/shoutgun.tscn" id="7_vcldl"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lwidi")
@@ -73,8 +72,4 @@ offset_top = 49.0
 offset_right = 397.0
 offset_bottom = 118.0
 
-[node name="Shoutgun" parent="." instance=ExtResource("7_vcldl")]
-
 [connection signal="timeout" from="WavePrepareTime" to="." method="_on_wave_prepare_time_timeout"]
-
-[editable path="Shoutgun"]
