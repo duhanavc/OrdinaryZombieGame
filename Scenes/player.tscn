@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dem1i0vyvamqd"]
+[gd_scene load_steps=14 format=3 uid="uid://dem1i0vyvamqd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bk0r"]
 [ext_resource type="Texture2D" uid="uid://xgq20tgi82m5" path="res://Sprites/AmongUs/walkAll.png" id="2_hbp8u"]
 [ext_resource type="PackedScene" uid="uid://qrvglhsdhqlr" path="res://Scenes/deagle.tscn" id="3_5f1hh"]
 [ext_resource type="AudioStream" uid="uid://87xlouwjqlkc" path="res://Soundfx/gunshot-sfx-foley-impact-shot-gun-xploson-sound-chakongaudio-182540.mp3" id="4_7cscl"]
 [ext_resource type="PackedScene" uid="uid://3utc2fuyrvre" path="res://Scenes/health_component.tscn" id="5_sa0u5"]
+[ext_resource type="PackedScene" uid="uid://d0yqxtw0237bm" path="res://Scenes/shoutgun.tscn" id="6_pob2w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nboj4"]
 radius = 87.945
@@ -23,6 +24,48 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_xebwy"]
+resource_name = "standingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_shsth"]
+resource_name = "standingRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_y7p1f"]
@@ -83,48 +126,6 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_xebwy"]
-resource_name = "standingLeft"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
-[sub_resource type="Animation" id="Animation_shsth"]
-resource_name = "standingRight"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaem2"]
 _data = {
 "RESET": SubResource("Animation_gnd6k"),
@@ -162,4 +163,11 @@ stream = ExtResource("4_7cscl")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_sa0u5")]
 
+[node name="ShoutgunAttackSpeed" type="Timer" parent="."]
+
+[node name="Shoutgun" parent="." instance=ExtResource("6_pob2w")]
+position = Vector2(-0.09, -12.9)
+scale = Vector2(3.34, 3.34)
+
 [connection signal="timeout" from="pistolAttackSpeed" to="." method="_on_pistol_attack_speed_timeout"]
+[connection signal="timeout" from="ShoutgunAttackSpeed" to="." method="_on_shoutgun_attack_speed_timeout"]

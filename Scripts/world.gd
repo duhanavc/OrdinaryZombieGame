@@ -69,3 +69,4 @@ func _process(delta):
 	
 func stop():
 	set_process(false)
+		

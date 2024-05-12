@@ -1,9 +1,12 @@
 extends Area2D
 
 
+var player = Player.new()
+
 func _on_body_entered(body):
 	if body.name == "Player":
-		queue_free() 
+		if player.currentHealth < 100 :
+			queue_free() 
 	
 
 #func _on_body_entered(body):

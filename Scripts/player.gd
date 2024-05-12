@@ -4,7 +4,7 @@ class_name Player
 
 @onready var playerAnimations = $AnimationPlayer
 const bulletScene = preload("res://Scenes/bullet.tscn")
-
+const shoutgunBulletScene = preload("res://Scenes/shoutgunBullet.tscn")
 var deagle = Deagle.new()
 
 var isFacingRight : bool = true
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	var direction : Vector2 = Input.get_vector("walkLeft", "walkRight", "walkUp", "walkDown")
 	velocity = direction * speed
 	move_and_slide()
-	
+	print(canAttack)
 	mousePos = get_global_mouse_position()
 	
 	if mousePos.x > position.x:
@@ -41,11 +41,13 @@ func _physics_process(delta):
 	
 func _process(delta):
 	$deagle.look_at(get_global_mouse_position())
+	$Shoutgun.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("attack"):
 		if canAttack == true:
 			$deagle.deagleAnim.play()
 			$AudioStreamPlayer2D.play()
-			shoot()		
+			shootShoutgun()
+			shoot()
 		canAttack = false
 
 func shoot():
@@ -55,7 +57,25 @@ func shoot():
 	bullet.position = $deagle/BulletPos.global_position
 	bullet.Velocity = get_global_mouse_position() - bullet.position
 	bullet.look_at(get_global_mouse_position())
-		
+	
+func shootShoutgun():
+	$ShoutgunAttackSpeed.start()
+	var ShoutgunBulletMid = shoutgunBulletScene.instantiate()
+	#var ShoutgunBulletTop = bulletScene.instantiate()
+	#var ShoutgunBulletBottom = bulletScene.instantiate()
+	get_parent().add_child(ShoutgunBulletMid)
+	#get_parent().add_child(ShoutgunBulletTop)
+	#get_parent().add_child(ShoutgunBulletBottom)
+	ShoutgunBulletMid.position = $Shoutgun/ShoutgunPos.global_position
+	#ShoutgunBulletTop.position = $ShoutgunPos.global_position
+	#ShoutgunBulletBottom.position = $ShoutgunPos.global_position
+	#
+	ShoutgunBulletMid.Velocity = get_global_mouse_position() - ShoutgunBulletMid.position
+	#ShoutgunBulletTop.Velocity = get_global_mouse_position() - ShoutgunBulletMid.position
+	#ShoutgunBulletBottom.Velocity = get_global_mouse_position() - ShoutgunBulletMid.position
+	
+	ShoutgunBulletMid.look_at(get_global_mouse_position())
+	
 	#func hurtZombie():
 	#$AudioStreamPlayer2D.play()
 	#$"../HUD/hpBar".value -= 0.5
@@ -75,3 +95,7 @@ func shoot():
 func _on_pistol_attack_speed_timeout():
 	canAttack = true
 	
+
+
+func _on_shoutgun_attack_speed_timeout():
+	canAttack = true

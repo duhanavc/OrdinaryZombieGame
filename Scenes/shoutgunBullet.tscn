@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb60ww57q0ldt"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_8cag7"]
+[ext_resource type="Texture2D" uid="uid://b8hrws888wbif" path="res://Sprites/bullet1.jpg" id="2_jqyrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gih1"]
+size = Vector2(133.697, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4m2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4l6s"]
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(0.255, 0.255)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8cag7")
+
+[node name="midBulletSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_jqyrt")
+
+[node name="topBulletSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -41)
+rotation = -0.261799
+texture = ExtResource("2_jqyrt")
+
+[node name="bottomBulletSprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 41)
+rotation = 0.261799
+texture = ExtResource("2_jqyrt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.280001, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="middleBulletCollider" type="CollisionShape2D" parent="."]
+scale = Vector2(0.265, 0.265)
+shape = SubResource("RectangleShape2D_1gih1")
+
+[node name="topBulletCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.10375, -10.3872)
+rotation = -0.261799
+scale = Vector2(0.265, 0.265)
+shape = SubResource("RectangleShape2D_1gih1")
+
+[node name="topBulletCollider2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.387)
+rotation = 0.261799
+scale = Vector2(0.265, 0.265)
+shape = SubResource("RectangleShape2D_1gih1")
+
+[node name="middleBulletArea2D" type="Area2D" parent="."]
+
+[node name="middleBulletCollisionShape" type="CollisionShape2D" parent="middleBulletArea2D"]
+shape = SubResource("RectangleShape2D_xo4m2")
+
+[node name="topBulletArea2D" type="Area2D" parent="."]
+position = Vector2(0, -41)
+rotation = -0.261799
+
+[node name="topBulletCollisionShape" type="CollisionShape2D" parent="topBulletArea2D"]
+shape = SubResource("RectangleShape2D_s4l6s")
+
+[node name="bottomBulletArea2D2" type="Area2D" parent="."]
+position = Vector2(0, 41)
+rotation = 0.261799
+
+[node name="bottomBulletCollisionShape" type="CollisionShape2D" parent="bottomBulletArea2D2"]
+shape = SubResource("RectangleShape2D_s4l6s")
+
+[connection signal="body_entered" from="middleBulletArea2D" to="." method="_on_area_2d_body_entered"]
