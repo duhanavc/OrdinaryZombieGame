@@ -46,7 +46,3 @@ func dealDamage():
 	$aniSprite.modulate = Color.WHITE
 	$AudioStreamPlayer2D.play()
 	healthComponent.damage(30)
-
-
-
-

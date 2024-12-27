@@ -135,14 +135,12 @@ texture = ExtResource("3_2y1vc")
 
 [node name="ShoutgunPosUp" type="Marker2D" parent="."]
 position = Vector2(146.46, -50)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ShoutgunPosUp"]
 texture = ExtResource("2_niqmf")
 
 [node name="ShoutgunPosDown" type="Marker2D" parent="."]
 position = Vector2(146.46, 50)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ShoutgunPosDown"]
 texture = ExtResource("2_niqmf")

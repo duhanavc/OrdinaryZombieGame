@@ -24,6 +24,3 @@ func get_direction_to_player():
 
 func dealDamage():
 	healthComponent.damage(10)
-
-
-

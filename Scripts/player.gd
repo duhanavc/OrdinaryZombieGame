@@ -5,6 +5,7 @@ class_name Player
 @onready var playerAnimations = $AnimationPlayer
 const bulletScene = preload("res://Scenes/bullet.tscn")
 #const shoutgunBulletScene = preload("res://Scenes/shoutgunBullet.tscn")
+#const shoutgunBulletScene = preload("res://Scenes/shoutgunBullet.tscn")
 
 @export var node: Node2D
 
@@ -72,30 +73,18 @@ func shootShoutgun():
 	var ShoutgunBulletBottom = bulletScene.instantiate()
 	
 	var bullet = bulletScene.instantiate()
-
-	#get_parent().add_child(ShoutgunBulletMid)
-	#get_parent().add_child(ShoutgunBulletTop)
-	#get_parent().add_child(ShoutgunBulletBottom)
-	#
-	#ShoutgunBulletMid.position = $Shoutgun/ShoutgunPos.global_position
-	#ShoutgunBulletTop.position = $Shoutgun/ShoutgunPos.global_position
-	#ShoutgunBulletBottom.position = $Shoutgun/ShoutgunPos.global_position
 	
-	ShoutgunBulletMid.direction = get_global_mouse_position() - ShoutgunBulletMid.position ## direction al
+	ShoutgunBulletMid.direction = get_global_mouse_position() - node.get_node("ShoutgunPos").global_position  ## direction al
 	ShoutgunBulletTop.direction = node.get_node("ShoutgunPosUp").global_position - node.get_node("ShoutgunPos").global_position ## direction al
 	ShoutgunBulletBottom.direction =  node.get_node("ShoutgunPosDown").global_position -node.get_node("ShoutgunPos").global_position
 	
-	## en kötü bot ve top için iki final marker ekle directionu o şekilde de alabilirsin ortadaki hala bizi döndürür
-	ShoutgunBulletTop.global_rotation_degrees = node.get_node("ShoutgunPosUp").global_rotation_degrees
-	ShoutgunBulletMid.global_rotation_degrees = node.get_node("ShoutgunPos").global_rotation_degrees
-	ShoutgunBulletBottom.global_rotation_degrees =  node.get_node("ShoutgunPosDown").global_rotation_degrees
 	
 	
-	#bullet.direction = node.get_node("ShoutgunPos").global_position - global_position
+	
 	bullet.global_position = node.get_node("ShoutgunPos").global_position
 	get_tree().get_root().add_child(bullet)
 	
-	#ShoutgunBulletBottom.direction = node.get_node("ShoutgunPosDown").global_position - global_position
+	
 	ShoutgunBulletBottom.global_position = node.get_node("ShoutgunPos").global_position
 	get_tree().get_root().add_child(ShoutgunBulletBottom)
 

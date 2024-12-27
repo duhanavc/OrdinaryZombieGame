@@ -141,8 +141,6 @@ motion_mode = 1
 script = ExtResource("1_7bk0r")
 node = NodePath("Shoutgun")
 
-[node name="Shoutgun" parent="." instance=ExtResource("6_pob2w")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nboj4")
 
@@ -167,6 +165,8 @@ stream = ExtResource("4_7cscl")
 [node name="HealthComponent" parent="." instance=ExtResource("5_sa0u5")]
 
 [node name="ShoutgunAttackSpeed" type="Timer" parent="."]
+
+[node name="Shoutgun" parent="." instance=ExtResource("6_pob2w")]
 
 [connection signal="timeout" from="pistolAttackSpeed" to="." method="_on_pistol_attack_speed_timeout"]
 [connection signal="timeout" from="ShoutgunAttackSpeed" to="." method="_on_shoutgun_attack_speed_timeout"]
